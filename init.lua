@@ -70,25 +70,7 @@ require("lazy").setup({
       end
 
       -- Setup common LSPs with specific configurations
-      setup_lsp("lua_ls", {
-        settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false,
-            },
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      })
+      setup_lsp("lua_ls")
       setup_lsp("rust_analyzer")
       setup_lsp("clangd")
       setup_lsp("gopls")
