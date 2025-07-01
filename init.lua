@@ -166,6 +166,26 @@ require("lazy").setup({
     end,
   },
 
+  -- File manager
+  {
+    "echasnovski/mini.files",
+    version = "*",
+    keys = {
+      { "-", "<cmd>lua MiniFiles.open()<cr>", desc = "File explorer" },
+    },
+    config = function()
+      require("mini.files").setup({
+        options = {
+          use_as_default_explorer = true,
+        },
+        windows = {
+          preview = true,
+          width_preview = 50,
+        },
+      })
+    end,
+  },
+
   -- Which-key for keymap discovery
   {
     "folke/which-key.nvim",
@@ -231,7 +251,6 @@ require("lazy").setup({
 })
 
 -- Additional keymaps
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex, { desc = "File explorer" })
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down" })
