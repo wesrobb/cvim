@@ -49,7 +49,7 @@ require("lazy").setup({
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "gopls", "omnisharp" },
+        ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "omnisharp" },
         automatic_installation = true,
       })
 
@@ -73,7 +73,6 @@ require("lazy").setup({
       setup_lsp("lua_ls")
       setup_lsp("rust_analyzer")
       setup_lsp("clangd")
-      setup_lsp("gopls")
       setup_lsp("omnisharp")
 
       -- Alternative: You can also set specific root patterns for each LSP
@@ -105,7 +104,7 @@ require("lazy").setup({
     event = { "BufReadPre", "BufNewFile" },
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "rust", "c", "cpp", "go", "javascript", "typescript", "c_sharp" },
+        ensure_installed = { "lua", "rust", "c", "cpp", "javascript", "typescript", "c_sharp" },
         auto_install = true,
         highlight = {
           enable = true,
