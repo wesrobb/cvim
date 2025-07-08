@@ -152,7 +152,17 @@ require("lazy").setup({
     version = "v0.*",
     config = function()
       require("blink.cmp").setup({
-        keymap = { preset = "default" },
+        keymap = {
+          preset = "default",
+          ["<Tab>"] = { "select_next", "fallback" },
+          ["<S-Tab>"] = { "select_prev", "fallback" },
+          ["<CR>"] = { "accept", "fallback" },
+        },
+        completion = {
+          list = {
+            selection = { preselect = false, auto_insert = true }
+          }
+        },
         appearance = {
           use_nvim_cmp_as_default = true,
           nerd_font_variant = "mono",
